@@ -1,0 +1,98 @@
+<mvc:View controllerName="com.mhirj.engdrawing.controller.DetailDetail" xmlns:f="sap.f" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" class="sapUiSizeCompact">
+    <f:DynamicPage toggleHeaderOnTitleClick="false">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
+                        <Title text="{i18n>documentDetails}" />
+                    </FlexBox>
+                </f:heading>
+                <f:navigationActions>
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" id="enterFullScreenBtn" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/endColumn/fullScreen} !== null }" />
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" id="exitFullScreenBtn" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/endColumn/exitFullScreen} !== null }" />
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close end column" visible="{= ${/actionButtonsInfo/endColumn/closeColumn} !== null }" />
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://home" press="handleBackToMainScreen" tooltip="Home Screen" visible="{LocalDataModel>/DMS_Model/displayScreen}" />
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <!--f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <layout:HorizontalLayout allowWrapping="true">
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <ObjectAttribute title="{i18n>docNo}" text="{LocalDataModel>/DRS_Model/attachments/value/0/DocumentName}" />
+                        <ObjectAttribute title="{i18n>revision}" text="{LocalDataModel>/DRS_Model/attachments/value/0/RevisionNumber}" />
+                        <ObjectAttribute title="{i18n>version}" text="{LocalDataModel>/DRS_Model/attachments/value/0/DocVersion}" />
+                    </layout:VerticalLayout>
+
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <ObjectAttribute title="{i18n>title}" text="{LocalDataModel>/DRS_Model/attachments/value/0/DocumentTitle}" />
+                        <ObjectAttribute title="{i18n>categories}" text="{LocalDataModel>/DRS_Model/attachments/value/0/CategoryName}" />
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
+            </f:DynamicPageHeader>
+        </f:header-->
+        <f:content>
+            <FlexBox direction="Column" class="sapUiSmallMarginBegin sapUiSmallMarginTop">
+                <Table inset="false">
+                    <columns>
+                        <Column width="12em">
+                            <Text text="{i18n>docNo}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>revision}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>version}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>title}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>categories}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/DocumentName}" />
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/RevisionNumber}" />
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/DocVersion}" />
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/DocumentTitle}" />
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/CategoryName}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <Table inset="false" items="{LocalDataModel>/DRS_Model/attachments/value/0/FileInfo}">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <Title id="idAttachmentTitle" text="{i18n>attachmentList}" level="H2" />
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="12em">
+                            <Text text="{i18n>modSum}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>fileName}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true" width="7rem">
+                            <Text text="{i18n>categories}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/Modsum}" />
+                                <Link text="{LocalDataModel>FileName}" press="onPressDownload" />
+                                <Text text="{LocalDataModel>/DRS_Model/attachments/value/0/CategoryName}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </FlexBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

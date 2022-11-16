@@ -1,0 +1,54 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+        "source": "^/CRJ_API",
+        "destination": "DMS_API",
+        "authenticationType": "none",
+        "csrfProtection": false
+    },
+    {
+        "source": "^/indexes",
+        "destination": "DRS_API",
+        "authenticationType": "none",
+        "csrfProtection": false
+    }, 
+    {
+        "authenticationType": "xsuaa",
+        "csrfProtection": false,
+        "source": "^/user-info/UserInfoEntity",
+        "destination": "CAPM_LOGGED_IN_USER_INFO"
+    },
+    {
+        "authenticationType": "xsuaa",
+        "csrfProtection": false,
+        "source": "^/getOAuthToken",
+        "destination": "node-destination-oauth-token"
+    },
+    {
+        "authenticationType": "none",
+        "csrfProtection": false,
+        "source": "^/drop-down(.*)$",
+        "destination": "CAPM_DROP_DOWN"
+    },
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

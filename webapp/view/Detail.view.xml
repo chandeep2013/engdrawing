@@ -1,0 +1,65 @@
+<mvc:View controllerName="com.mhirj.engdrawing.controller.Detail" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap" xmlns="sap.m" xmlns:f="sap.f" xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout id="idEngDrawingObjPageLayout" headerContentPinnable="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <!--uxap:heading>
+                    <Title text="{i18n>detailTitle}" wrapping="true" />
+                </uxap:heading-->
+                <uxap:navigationActions>
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" id="enterFullScreenBtn" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }" />
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" id="exitFullScreenBtn" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }" />
+                    <OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose" tooltip="Close middle column" visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }" />
+                </uxap:navigationActions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection>
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <FlexBox direction="Column">
+                                <Table id="idDRSTable" inset="false" items="{LocalDataModel>/DRS_Model/Documents/value}" showNoData="false" growing="true" growingThreshold="25" growingScrollToLoad="true">
+                                    <headerToolbar>
+                                        <OverflowToolbar>
+                                            <content>
+                                                <Title id="idTitle" text="{i18n>documentTitle}" level="H2" />
+                                            </content>
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                    <columns>
+                                        <Column width="12em">
+                                            <Text text="{i18n>docNo}" />
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="{i18n>revision}" />
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="{i18n>version}" />
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="{i18n>title}" />
+                                        </Column>
+                                        <Column demandPopin="true">
+                                            <Text text="{i18n>categories}" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem vAlign="Middle" type="Navigation" press=".onListItemPress">
+                                            <cells>
+                                                <Text text="{LocalDataModel>DocumentName}" />
+                                                <Text text="{LocalDataModel>RevisionNumber}" />
+                                                <Text text="{LocalDataModel>DocVersion}" />
+                                                <Text text="{LocalDataModel>DocumentTitle}" />
+                                                <Text text="{LocalDataModel>CategoryName}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </FlexBox>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>
