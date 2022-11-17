@@ -27,7 +27,7 @@
                     "semanticObject": "EngDrawing",
                     "action": "display",
                     "title": "{{flpTitle}}",
-                    "info": "{{flpSubtitle}}",
+                    "info": "",
                     "icon": "sap-icon://notes"
                 }
             }
