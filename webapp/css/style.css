@@ -31,3 +31,6 @@
 .buttonBlack .sapMBtnHoverable{
     background-color: black !important;
 }
+.sapMLIB.sapMLIBSelected {
+    background: #e7ecf0 !important;
+}

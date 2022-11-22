@@ -72,16 +72,9 @@ sap.ui.define([
                 }
             },
             onListItemPress: function (evt) {
-                if(this.Id !== undefined &&this.Id !== evt.getSource().getId()){
-                    document.getElementById(this.Id).style.backgroundColor = "#FFFFFF";
-                }
-                this.Id = evt.getSource().getId();
-                document.getElementById(evt.getSource().getId()).style.backgroundColor = "#e7ecf0";
-                var listItem = evt.getSource(),
-                    path = listItem.getBindingContext("LocalDataModel").getPath(),
-                    aData = this.getView().getModel("LocalDataModel").getProperty(path);
+                var selectedContext = this.getView().getModel("LocalDataModel").getProperty(evt.getSource().getSelectedContextPaths()[0]);
                 this.getRouter()._oRoutes.DetailDetail._oConfig.layout = "ThreeColumnsMidExpanded";
-                this.getRouter().navTo("DetailDetail", { layout: library.LayoutType.ThreeColumnsMidExpanded, UNID: aData.UNID });
+                this.getRouter().navTo("DetailDetail", { layout: library.LayoutType.ThreeColumnsMidExpanded, UNID: selectedContext.UNID });
             },
             handleFullScreen: function () {
                 this.bFocusFullScreenButton = true;

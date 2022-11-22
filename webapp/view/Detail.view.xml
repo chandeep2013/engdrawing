@@ -18,7 +18,8 @@
                     <uxap:ObjectPageSubSection>
                         <uxap:blocks>
                             <FlexBox direction="Column">
-                                <Table id="idDRSTable" inset="false" items="{LocalDataModel>/DRS_Model/Documents/value}" showNoData="false" growing="true" growingThreshold="25" growingScrollToLoad="true">
+                                <Table id="idDRSTable" inset="false" items="{LocalDataModel>/DRS_Model/Documents/value}" showNoData="false" growing="true" growingThreshold="25" growingScrollToLoad="true"
+                                mode="SingleSelectMaster" itemPress="onListItemPress">
                                     <headerToolbar>
                                         <OverflowToolbar>
                                             <content>
@@ -43,8 +44,8 @@
                                             <Text text="{i18n>categories}" />
                                         </Column>
                                     </columns>
-                                    <items>
-                                        <ColumnListItem vAlign="Middle" type="Navigation" press=".onListItemPress">
+                                    <items><!--press=".onListItemPress"-->
+                                        <ColumnListItem vAlign="Middle" type="Navigation" >
                                             <cells>
                                                 <Text text="{LocalDataModel>DocumentName}" />
                                                 <Text text="{LocalDataModel>RevisionNumber}" />
