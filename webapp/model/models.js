@@ -183,10 +183,11 @@ sap.ui.define([
                     "DropDownsData": {},
                     "projectData": terms,
                     "DRS_Key":"",
-                    "DMS_Key":"" 
+                    "DMS_Key":"",
+                    "DocNo":"",
+                    "DocTitle":"" 
                 }
             };
-
             var oModel = new JSONModel(projectData);
             oModel.setDefaultBindingMode("OneWay");
             oModel.setSizeLimit(9999999999);

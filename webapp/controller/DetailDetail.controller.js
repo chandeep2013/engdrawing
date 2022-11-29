@@ -95,10 +95,11 @@ sap.ui.define([
             },
             handleClose: function () {
                 this.bFocusFullScreenButton = true;
-                var data = this.getView().getModel("LocalDataModel").getData().DRS_Model.attachments.value[0];
+                //var data = this.getView().getModel("LocalDataModel").getData().DRS_Model.attachments.value[0];
+                var data = this.getLocalDataModel().getData().DRS_Model;
                 var sNextLayout = this.getOwnerComponent().getModel().getProperty("/actionButtonsInfo/midColumn/exitFullScreen");
                 this.getRouter()._oRoutes.Detail._oConfig.layout = "TwoColumnsMidExpanded";
-                this.getRouter().navTo("Detail", { layout: "TwoColumnsMidExpanded", docNo: data.DocumentName, docTitle: data.DocumentTitle });
+                this.getRouter().navTo("Detail", { layout: "TwoColumnsMidExpanded", docNo: data.docNo, docTitle: data.docTitle });
             }
         });
     });

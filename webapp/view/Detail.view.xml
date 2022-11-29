@@ -18,34 +18,34 @@
                     <uxap:ObjectPageSubSection>
                         <uxap:blocks>
                             <FlexBox direction="Column">
-                                <Table id="idDRSTable" inset="false" items="{LocalDataModel>/DRS_Model/Documents/value}" showNoData="false" growing="true" growingThreshold="25" growingScrollToLoad="true"
-                                mode="SingleSelectMaster" itemPress="onListItemPress">
+                                <!--"-->
+                                <Table id="idDRSTable" inset="false" items="{LocalDataModel>/DRS_Model/Documents/value}" showNoData="false" growing="true" growingThreshold="50" growingScrollToLoad="true" mode="SingleSelectMaster" sticky="ColumnHeaders,HeaderToolbar" itemPress="onListItemPress">
+                                    <!--updateFinished="onMoreDataLoad"-->
                                     <headerToolbar>
                                         <OverflowToolbar>
-                                            <content>
-                                                <Title id="idTitle" text="{i18n>documentTitle}" level="H2" />
-                                            </content>
+                                            <Title id="idTitle" text="{i18n>documentTitle}" level="H2" />
                                         </OverflowToolbar>
                                     </headerToolbar>
                                     <columns>
-                                        <Column width="12em">
+                                        <Column width="12em" hAlign="Center">
                                             <Text text="{i18n>docNo}" />
                                         </Column>
-                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Column width="7em" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                             <Text text="{i18n>revision}" />
                                         </Column>
-                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Column width="7em" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                             <Text text="{i18n>version}" />
                                         </Column>
-                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                        <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                                             <Text text="{i18n>title}" />
                                         </Column>
-                                        <Column demandPopin="true">
+                                        <Column demandPopin="true" hAlign="Center">
                                             <Text text="{i18n>categories}" />
                                         </Column>
                                     </columns>
-                                    <items><!--press=".onListItemPress"-->
-                                        <ColumnListItem vAlign="Middle" type="Navigation" >
+                                    <items>
+                                        <!--press=".onListItemPress"-->
+                                        <ColumnListItem vAlign="Middle" type="Navigation">
                                             <cells>
                                                 <Text text="{LocalDataModel>DocumentName}" />
                                                 <Text text="{LocalDataModel>RevisionNumber}" />
@@ -62,5 +62,11 @@
                 </uxap:subSections>
             </uxap:ObjectPageSection>
         </uxap:sections>
+        <uxap:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button id="idLoadMore" class="buttonBlack" text="{i18n>seeMore}" press="onMoreDataLoad" visible="false" />
+            </OverflowToolbar>
+        </uxap:footer>
     </uxap:ObjectPageLayout>
 </mvc:View>

@@ -34,3 +34,6 @@
 .sapMLIB.sapMLIBSelected {
     background: #e7ecf0 !important;
 }
+.sapUxAPObjectPageLayout .sapUxAPObjectPageFooter .sapUxAPObjectPageFloatingFooter {
+    border-radius: 0rem !important;
+}
