@@ -19,11 +19,12 @@ sap.ui.define([
                 this.setBusyOff();
             },
             onSearch:function(){
+                var that = this;
                 var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1);
                 var documentNumber = this.getView().byId("idDocNo").getValue(),
                     documentTitle = this.getView().byId("idDocTitle").getValue();
                 if(documentNumber == "" && documentTitle ==""){
-                    this.displayErrorMessageWithAction("Atleat one filed is mandatory");
+                    this.displayErrorMessageWithAction(that.getResourceBundle().getText("mandatoryText"));
                 }else{
                     if(documentTitle ==""){
                         //documentTitle = "Title";

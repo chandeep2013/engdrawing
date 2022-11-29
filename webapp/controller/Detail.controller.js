@@ -61,9 +61,11 @@ sap.ui.define([
                 var drsData = this.getLocalDataModel().getData().DRS_Model.Documents;
                 if (evt == undefined || (drsData != undefined && this.oDataLength > drsData.value.length)) {
                     this.getDrawingData(top, skip);
+                    this.getView().byId("idEngDrawingObjPageLayout").setShowFooter(true);
                 }
                 else{
                     this.getView().byId("idLoadMore").setVisible(false);
+                    this.getView().byId("idEngDrawingObjPageLayout").setShowFooter(false);
                 }
             },
             getDrawingData: function (top, skip) {
@@ -91,9 +93,11 @@ sap.ui.define([
                         that.oDataLength = parseData["@odata.count"];
                         if(that.oDataLength > 100){
                             that.getView().byId("idLoadMore").setVisible(true);
+                            that.getView().byId("idEngDrawingObjPageLayout").setShowFooter(true);
                         }
                         else{
                             that.getView().byId("idLoadMore").setVisible(false);
+                            that.getView().byId("idEngDrawingObjPageLayout").setShowFooter(false);
                         }
                         if (parseData["@odata.count"] === 0) {
                             that.displayInfoMessageWithAction(that.getResourceBundle().getText("records"));
