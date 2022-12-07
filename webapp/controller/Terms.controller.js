@@ -41,7 +41,7 @@ sap.ui.define([
         },
         onSelect: function (oEvent) {
             var check = oEvent.getParameter("selected");
-
+            /// -- terms and conditions check ---////
             if (check === true) {
                 var sessionvalue = [{
                     TermsAndConditions: check,
