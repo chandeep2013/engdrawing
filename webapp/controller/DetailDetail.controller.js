@@ -51,7 +51,7 @@ sap.ui.define([
                 var oObj = this.getView().getModel("LocalDataModel").getProperty(sPath);
                 var DRS_Key = this.getLocalDataModel().getData().DRS_Model.DRS_Key;
                 var serviceUrl = this.getCompleteURL() + "/CRJ_API/CRJFile";
-                // service call to get attachment list
+                // service call to get attachment list ////
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", serviceUrl, true);
                 xhr.responseType = 'blob';
